@@ -20,9 +20,20 @@ public class InitializeScriptableObjects : MonoBehaviour
             else if (item.itemName == "table")
                 item.blockPlacement = new List<List<int>>
                 {
-                    new List<int>{1, 1, 1},
-                    new List<int>{1, 1, 1},
-                    new List<int>{1, 0, 1}
+                    new List<int>{1, 1, 1, 1},
+                    new List<int>{1, 0, 0, 1}
+                };
+            else if (item.itemName == "tvSet")
+                item.blockPlacement = new List<List<int>>
+                {
+                    new List<int>{0, 1, 1, 1, 0},
+                    new List<int>{1, 1, 1, 1, 1}
+                };
+            else if (item.itemName == "dresser")
+                item.blockPlacement = new List<List<int>>
+                {
+                    new List<int>{0, 1, 1, 1, 0},
+                    new List<int>{1, 1, 1, 1, 1}
                 };
         }
     }
