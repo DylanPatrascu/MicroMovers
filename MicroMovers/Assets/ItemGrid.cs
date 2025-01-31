@@ -16,6 +16,10 @@ public class ItemGrid : MonoBehaviour
     [SerializeField] int gridSizeWidth = 5;
     [SerializeField] int gridSizeHeight = 6;
 
+    List<InventoryItem> history = new List<InventoryItem>();
+
+    public PlayerMovement pm;
+
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -82,7 +86,16 @@ public class ItemGrid : MonoBehaviour
 
         rectTransform.localPosition = position;
 
+        if (!history.Contains(inventoryItem))
+        {
+            pm.numObjects++;
+            history.Add(inventoryItem);
+            Debug.Log(pm.numObjects);
+        }
+
         return true;
+
+        
 
     }
 

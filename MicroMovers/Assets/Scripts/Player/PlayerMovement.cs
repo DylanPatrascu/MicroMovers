@@ -23,6 +23,9 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource pickupNoise;
     public AudioSource doorNoise;
+    public int maxZaps = 3;
+    public int zaps = 0;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -86,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             collision.gameObject.SetActive(false);
-            numObjects++;
+            //numObjects++;
         }
     }
 
@@ -105,7 +108,16 @@ public class PlayerMovement : MonoBehaviour
             }
 
             collision.gameObject.SetActive(false);
-            numObjects++;
+        }
+
+        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.E) && zaps < maxZaps)
+        {
+
+            Item item = collision.gameObject.GetComponent<Item>();
+
+            item.zItem.transform.gameObject.SetActive(true);
+            item.transform.gameObject.SetActive(false);
+
         }
 
 
