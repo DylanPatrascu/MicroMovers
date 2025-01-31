@@ -5095,7 +5095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 58.4, y: -514}
+  m_AnchoredPosition: {x: 58.4, y: -538}
   m_SizeDelta: {x: 200, y: 51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910402559
@@ -5118,13 +5118,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'MICRO MOVERS
+  m_text: 'wasd - move
 
-    MICRO MOVERS
+    e - shrink
 
-    MICRO MOVERS
+    space - grab
 
-'
+    mouse - place'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 985b45a6e3497cf4a86eaa1dd7017691, type: 2}
   m_sharedMaterial: {fileID: 8162482174535621246, guid: 985b45a6e3497cf4a86eaa1dd7017691, type: 2}
@@ -5490,7 +5490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -39, y: -440}
+  m_AnchoredPosition: {x: -39, y: -434}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2062569779

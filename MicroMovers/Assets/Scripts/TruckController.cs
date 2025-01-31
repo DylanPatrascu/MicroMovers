@@ -17,7 +17,7 @@ public class TruckController : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collider)
     {
         numObjects += collider.gameObject.GetComponent<PlayerMovement>().numObjects;
-        if(numObjects != maxObjects)
+        if (numObjects != maxObjects || numObjects == 0)
         {
             dropNoise.Play();
         }
@@ -26,11 +26,11 @@ public class TruckController : MonoBehaviour
         inventoryController.ClearInventory();
 
         Debug.Log("Unloaded in Truck" + numObjects);
-        if (numObjects > 0 && numObjects < 3)
+        if (numObjects > 0 && numObjects < 4)
         {
             sprite.sprite = halfFull;
         }
-        else if(numObjects >= 3)
+        else if(numObjects >= 6)
         {
             sprite.sprite = full;
         } 

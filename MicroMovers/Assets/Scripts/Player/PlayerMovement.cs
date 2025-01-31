@@ -23,8 +23,14 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioSource pickupNoise;
     public AudioSource doorNoise;
+    public AudioSource shrinkNoise;
     public int maxZaps = 3;
     public int zaps = 0;
+
+    //public GameObject zapUI;
+    //public GameObject grabUI;
+
+
 
     void Start()
     {
@@ -76,6 +82,15 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
+        /*
+        if(collision.tag == "Item")
+        {
+            grabUI.SetActive(true);
+            if(collision.gameObject.GetComponent<Item>().shrinkable)
+            {
+                zapUI.SetActive(true);
+            }
+        }*/
 
         if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.Space))
         {
@@ -114,13 +129,23 @@ public class PlayerMovement : MonoBehaviour
         {
 
             Item item = collision.gameObject.GetComponent<Item>();
-
-            item.zItem.transform.gameObject.SetActive(true);
-            item.transform.gameObject.SetActive(false);
+            if(item.shrinkable)
+            {
+                item.zItem.transform.gameObject.SetActive(true);
+                item.transform.gameObject.SetActive(false);
+                shrinkNoise.Play();
+                zaps++;
+            }
 
         }
 
 
     }
+    /*
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        grabUI.SetActive(false);
+        zapUI.SetActive(false);
+    }*/
 
 }
