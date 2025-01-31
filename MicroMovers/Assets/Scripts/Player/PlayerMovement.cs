@@ -1,6 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -15,12 +16,18 @@ public class PlayerMovement : MonoBehaviour
     public bool Direction { get => direction; }
     public Vector2 Movement { get => movement; }
 
+    public GameObject outsideCamera;
+    public GameObject insideCamera;
+    public int numObjects = 0;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        insideCamera.SetActive(false);
+        outsideCamera.SetActive(true);
+
     }
 
-    
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal");
@@ -34,8 +41,43 @@ public class PlayerMovement : MonoBehaviour
         {
             direction = true;
         }
+        rb.velocity = movement * movementSpeed * Time.deltaTime;
+        //rb.MovePosition(rb.position + movement * movementSpeed * Time.deltaTime);
+    }
 
-        rb.MovePosition(rb.position + movement * movementSpeed * Time.deltaTime);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.name == "House")
+        {
+            transform.position = new Vector3(-13.0f, 0.7f, -0.2f);
+            insideCamera.SetActive(true);
+            outsideCamera.SetActive(false);
+        }
+        else if(collision.gameObject.name == "FrontDoor")
+        {
+            transform.position = new Vector3(-27.5f, 1.9f, -0.2f);
+            insideCamera.transform.position = new Vector3(-13.0f, 0.7f, -10.0f);
+
+            insideCamera.SetActive(false);
+            outsideCamera.SetActive(true);
+        }
+
+        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.E))
+        {
+            collision.gameObject.SetActive(false);
+            numObjects++;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.E))
+        {
+            collision.gameObject.SetActive(false);
+            numObjects++;
+        }
+
+
     }
 
 }
