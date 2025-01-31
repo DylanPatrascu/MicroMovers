@@ -6,8 +6,12 @@ public class TruckController : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public int numObjects = 0;
+    public int maxObjects = 11;
+    public bool win = false;
     public Sprite halfFull;
     public Sprite full;
+
+
     public void OnCollisionEnter2D(Collision2D collider)
     {
         numObjects += collider.gameObject.GetComponent<PlayerMovement>().numObjects;
@@ -22,8 +26,9 @@ public class TruckController : MonoBehaviour
             sprite.sprite = full;
         } 
 
-        if(numObjects == 11)
+        if(numObjects == maxObjects)
         {
+            win = true;
             Debug.Log("You Win");
         }
         

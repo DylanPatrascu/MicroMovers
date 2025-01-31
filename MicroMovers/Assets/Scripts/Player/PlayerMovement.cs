@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -60,6 +60,12 @@ public class PlayerMovement : MonoBehaviour
 
             insideCamera.SetActive(false);
             outsideCamera.SetActive(true);
+        }
+
+        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.E))
+        {
+            collision.gameObject.SetActive(false);
+            numObjects++;
         }
     }
 
