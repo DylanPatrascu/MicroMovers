@@ -11,11 +11,15 @@ public class TruckController : MonoBehaviour
     public bool win = false;
     public Sprite halfFull;
     public Sprite full;
-
+    public AudioSource audio;
 
     public void OnCollisionEnter2D(Collision2D collider)
     {
         numObjects += collider.gameObject.GetComponent<PlayerMovement>().numObjects;
+        for(int i = 0; i < collider.gameObject.GetComponent<PlayerMovement>().numObjects; i++)
+        {
+            audio.Play();
+        }
         collider.gameObject.GetComponent<PlayerMovement>().numObjects = 0;
 
         inventoryController.ClearInventory();
