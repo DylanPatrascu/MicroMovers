@@ -15,7 +15,7 @@ public class GridInteract : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        inventoryController.selectedItemGrid = null;
+        //inventoryController.selectedItemGrid = null;
     }
 
     private void Awake()

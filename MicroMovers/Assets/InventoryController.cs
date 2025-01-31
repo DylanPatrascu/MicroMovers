@@ -22,11 +22,6 @@ public class InventoryController : MonoBehaviour
     {
         ItemIconDrag();
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            CreateRandomItem();
-        }
-
         if (selectedItemGrid == null) { return; }
 
         if (Input.GetMouseButtonDown(0))
@@ -46,6 +41,23 @@ public class InventoryController : MonoBehaviour
 
         int selectedItemID = UnityEngine.Random.Range(0, items.Count);
         inventoryItem.Set(items[selectedItemID]);
+    }
+
+    public void CreateItem(int itemID)
+    {
+        InventoryItem inventoryItem = Instantiate(itemPrefab).GetComponent<InventoryItem>();
+        selectedItem = inventoryItem;
+
+        rectTransform = inventoryItem.GetComponent<RectTransform>();
+        rectTransform.SetParent(canvasTransform);
+
+        inventoryItem.Set(items[itemID]);
+    }
+
+    public void ClearInventory()
+    {
+        
+        selectedItemGrid.ClearInventory();
     }
 
     private void LeftMouseButton()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TruckController : MonoBehaviour
 {
+    public InventoryController inventoryController;
     public SpriteRenderer sprite;
     public int numObjects = 0;
     public int maxObjects = 11;
@@ -16,6 +17,9 @@ public class TruckController : MonoBehaviour
     {
         numObjects += collider.gameObject.GetComponent<PlayerMovement>().numObjects;
         collider.gameObject.GetComponent<PlayerMovement>().numObjects = 0;
+
+        inventoryController.ClearInventory();
+
         Debug.Log("Unloaded in Truck" + numObjects);
         if (numObjects > 0 && numObjects < 3)
         {

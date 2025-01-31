@@ -118,7 +118,7 @@ public class ItemGrid : MonoBehaviour
         return toReturn;
     }
 
-    private void CleanGridReference(InventoryItem item)
+    public void CleanGridReference(InventoryItem item)
     {
         for (int ix = 0; ix < item.itemData.width; ix++)
         {
@@ -126,6 +126,25 @@ public class ItemGrid : MonoBehaviour
             {
                 inventoryItemSlot[item.onGridPositionX + ix, item.onGridPositionY + iy] = null;
             }
+        }
+    }
+
+    public void ClearInventory()
+    {
+        for (int x = 0; x < gridSizeWidth; x++)
+        {
+            for (int y = 0; y < gridSizeHeight; y++) 
+            {
+                Debug.Log("Here");
+                if (inventoryItemSlot[x, y] != null) 
+                {
+                    CleanGridReference(inventoryItemSlot[x, y]);
+                }
+            }
+        }
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 

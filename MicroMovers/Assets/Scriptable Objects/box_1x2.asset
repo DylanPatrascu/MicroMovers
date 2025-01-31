@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 1
   height: 2
-  itemIcon: {fileID: 21300000, guid: a007d81ab0f84994284b9d714d16eb5d, type: 3}
+  itemIcon: {fileID: 21300000, guid: 3df7f7356b5821046a47ef06acae5b93, type: 3}

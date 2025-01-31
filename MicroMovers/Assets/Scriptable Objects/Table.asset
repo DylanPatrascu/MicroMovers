@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1344817df743df42a99644b5a9591c3, type: 3}
-  m_Name: box_2x1
+  m_Name: Table
   m_EditorClassIdentifier: 
   width: 2
-  height: 1
-  itemIcon: {fileID: 21300000, guid: cbbe26786eaa08c4390949c76d44abd5, type: 3}
+  height: 4
+  itemIcon: {fileID: 21300000, guid: 259a3121a35d52e44add3f853c0122b2, type: 3}

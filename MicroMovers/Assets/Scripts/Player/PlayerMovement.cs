@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] float movementSpeed = 3f;
+    [SerializeField] InventoryController inventoryController;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -42,11 +43,14 @@ public class PlayerMovement : MonoBehaviour
             direction = true;
         }
         rb.velocity = movement * movementSpeed * Time.deltaTime;
-        //rb.MovePosition(rb.position + movement * movementSpeed * Time.deltaTime);
+        
+        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if(collision.gameObject.name == "House")
         {
             transform.position = new Vector3(-13.0f, 0.7f, -0.2f);
@@ -62,8 +66,15 @@ public class PlayerMovement : MonoBehaviour
             outsideCamera.SetActive(true);
         }
 
-        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.E))
+        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.Space))
         {
+
+            Item item = collision.gameObject.GetComponent<Item>();
+            if (item != null) 
+            {
+                inventoryController.CreateItem(item.itemID);
+            }
+            
             collision.gameObject.SetActive(false);
             numObjects++;
         }
@@ -71,8 +82,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.E))
+
+        if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.Space))
         {
+
+            Item item = collision.gameObject.GetComponent<Item>();
+            if (item != null)
+            {
+                Debug.Log(item.itemID);
+                inventoryController.CreateItem(item.itemID);
+            }
+
             collision.gameObject.SetActive(false);
             numObjects++;
         }
