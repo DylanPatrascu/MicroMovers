@@ -7101,7 +7101,7 @@ PrefabInstance:
       objectReference: {fileID: 1042056955}
     - target: {fileID: 4989318615227494172, guid: 0eb737334bd45224aa9c84f1c8e55534, type: 3}
       propertyPath: movementSpeed
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4989318615227494172, guid: 0eb737334bd45224aa9c84f1c8e55534, type: 3}
       propertyPath: outsideCamera
