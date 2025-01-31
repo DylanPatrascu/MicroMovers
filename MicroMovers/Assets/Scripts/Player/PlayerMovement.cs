@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public GameObject outsideCamera;
     public GameObject insideCamera;
     public int numObjects = 0;
+
+    public AudioSource pickupNoise;
+    public AudioSource doorNoise;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(-13.0f, 0.7f, -0.2f);
             insideCamera.SetActive(true);
             outsideCamera.SetActive(false);
+            doorNoise.Play();
+
         }
         else if(collision.gameObject.name == "FrontDoor")
         {
@@ -64,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
 
             insideCamera.SetActive(false);
             outsideCamera.SetActive(true);
+            doorNoise.Play();
+
+
         }
 
         if (collision.tag == "Item" && Input.GetKeyDown(KeyCode.Space))
@@ -73,8 +81,10 @@ public class PlayerMovement : MonoBehaviour
             if (item != null) 
             {
                 inventoryController.CreateItem(item.itemID);
+                pickupNoise.Play();
+
             }
-            
+
             collision.gameObject.SetActive(false);
             numObjects++;
         }
@@ -91,6 +101,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log(item.itemID);
                 inventoryController.CreateItem(item.itemID);
+                pickupNoise.Play();
             }
 
             collision.gameObject.SetActive(false);

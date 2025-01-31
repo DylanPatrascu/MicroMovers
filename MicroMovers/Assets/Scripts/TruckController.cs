@@ -11,14 +11,15 @@ public class TruckController : MonoBehaviour
     public bool win = false;
     public Sprite halfFull;
     public Sprite full;
-    public AudioSource audio;
+    public AudioSource dropNoise;
+    public AudioSource winNoise;
 
     public void OnCollisionEnter2D(Collision2D collider)
     {
         numObjects += collider.gameObject.GetComponent<PlayerMovement>().numObjects;
-        for(int i = 0; i < collider.gameObject.GetComponent<PlayerMovement>().numObjects; i++)
+        if(numObjects != maxObjects)
         {
-            audio.Play();
+            dropNoise.Play();
         }
         collider.gameObject.GetComponent<PlayerMovement>().numObjects = 0;
 
@@ -38,6 +39,8 @@ public class TruckController : MonoBehaviour
         {
             win = true;
             Debug.Log("You Win");
+            winNoise.Play();
+            Time.timeScale = 0;
         }
         
     }
