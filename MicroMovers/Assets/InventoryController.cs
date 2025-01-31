@@ -56,8 +56,8 @@ public class InventoryController : MonoBehaviour
 
     public void ClearInventory()
     {
-        
-        selectedItemGrid.ClearInventory();
+        if (selectedItemGrid != null)
+            selectedItemGrid.ClearInventory();
     }
 
     private void LeftMouseButton()

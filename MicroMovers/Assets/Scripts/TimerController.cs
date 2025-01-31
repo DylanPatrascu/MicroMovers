@@ -9,6 +9,8 @@ public class TimerController : MonoBehaviour
     public TMP_Text winText;
     public GameObject timerUI;
     public GameObject winUI;
+    public GameObject inventory;
+    public GameObject inventoryUI;
     public float timer;
     public TruckController truckController;
 
@@ -38,6 +40,8 @@ public class TimerController : MonoBehaviour
         else
         {
             timerUI.SetActive(false);
+            Destroy(inventory);
+            Destroy(inventoryUI);
             winUI.SetActive(true);
             winText.text = "You Win!\n Score\n" + timerText.text;
         }
