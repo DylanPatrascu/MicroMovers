@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2044522410, guid: 665818b60a0be354ebbbcd8850a419fa, type: 3}
+  m_Sprite: {fileID: -35378190, guid: 2502309f1a945254d83ff0ae4ac6ed6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,14 +119,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8213033295878869371}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -137,7 +137,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &5020268568153684497
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,8 +170,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0088297725, y: 0}
-  m_Size: {x: 0.59382904, y: 1}
+  m_Offset: {x: 0.034096718, y: -0.0055179}
+  m_Size: {x: 0.72260857, y: 1.0032731}
   m_Direction: 0
 --- !u!61 &7689046807863779379
 BoxCollider2D:
@@ -205,7 +205,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.772299, y: -0.017306417}
+  m_Offset: {x: -0.008170128, y: -0.0109933615}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -216,7 +216,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.93510115, y: 0.6192588}
+  m_Size: {x: 1.0165386, y: 1.3893907}
   m_EdgeRadius: 0
 --- !u!114 &4989318615227494172
 MonoBehaviour:
@@ -230,7 +230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c5f2e411358fd4792469202a0e59fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 3.5
+  movementSpeed: 400
+  outsideCamera: {fileID: 0}
+  insideCamera: {fileID: 0}
 --- !u!114 &6792484209767161957
 MonoBehaviour:
   m_ObjectHideFlags: 0
